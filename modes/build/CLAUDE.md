@@ -134,17 +134,23 @@ spawn 每个成员时，prompt 包含：
 ### 推荐 Skills
 
 ```bash
-# 产品设计
+# Builder（产品 + 调度）
 claude skill install product-manager-toolkit
+claude skill install find-skills
 
-# 前端设计（如需要）
-claude skill install frontend-design
-
-# 技术选型
+# Researcher（调研）
+claude skill install web-search
 claude skill install tech-stack-evaluator
 
-# Skill 发现（根据项目自动推荐）
-claude skill install find-skills
+# Developer（开发）
+claude skill install feature-dev
+
+# Reviewer（代码审查）
+claude skill install code-review
+
+# UI/UX（设计，有前端界面时安装）
+claude skill install frontend-design
+claude skill install web-design-guidelines
 ```
 
 ---
