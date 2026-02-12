@@ -59,6 +59,9 @@ claude skill install superpowers:systematic-debugging
 
 # 完成前验证
 claude skill install superpowers:verification-before-completion
+
+# 代码审查（修完后自审，防止修一个 bug 引入新 bug）
+claude skill install code-review
 ```
 
 ---
