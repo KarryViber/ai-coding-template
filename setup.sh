@@ -50,14 +50,13 @@ echo ""
 read -p "跳过调研阶段？适合面试/demo等时间紧急场景 [y/N]: " FAST_MODE
 FAST_MODE=${FAST_MODE:-"n"}
 
-# 跨平台 sed -i 兼容
-SED_INPLACE=(-i '')
-if [[ "$OSTYPE" != "darwin"* ]]; then
-  SED_INPLACE=(-i)
-fi
+# 跨平台 sed 替换（用 tmp file，不依赖 sed -i 的平台差异）
+replace_in_file() {
+  local file="$1" pattern="$2" replacement="$3"
+  sed "s|${pattern}|${replacement}|g" "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+}
 
 # 4. 复制模式文件
-# CLAUDE.md
 cp "modes/${MODE}/CLAUDE.md" CLAUDE.md
 
 # Agent 定义（如果有）
@@ -71,9 +70,7 @@ fi
 
 # 5. 应用 Fast 模式标记
 if [[ "$FAST_MODE" =~ ^[Yy]$ ]]; then
-  # 在 CLAUDE.md 顶部插入 Fast 标记
-  sed "${SED_INPLACE[@]}" '1s/^/**Fast**: true\n\n/' CLAUDE.md
-  # 删除 researcher agent
+  printf '**Fast**: true\n\n%s' "$(cat CLAUDE.md)" > CLAUDE.md
   rm -f .claude/agents/researcher.md 2>/dev/null
   FAST_APPLIED=true
 else
@@ -81,8 +78,8 @@ else
 fi
 
 # 6. 替换占位符
-sed "${SED_INPLACE[@]}" "s/{{PROJECT_NAME}}/${PROJECT_NAME}/g" CLAUDE.md
-sed "${SED_INPLACE[@]}" "s/{{TECH_STACK}}/${TECH_STACK}/g" CLAUDE.md
+replace_in_file CLAUDE.md '{{PROJECT_NAME}}' "${PROJECT_NAME}"
+replace_in_file CLAUDE.md '{{TECH_STACK}}' "${TECH_STACK}"
 
 # 7. 清理
 rm -rf modes/
