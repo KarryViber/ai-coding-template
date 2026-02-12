@@ -1,7 +1,7 @@
 # INTERFACES.md — 接口契约
 
-> 由 main agent 在架构设计阶段定义，developer agent 必须严格遵守。
-> 需要修改接口时，向 main agent 报告，不要自行改动。
+> 由 Builder 在架构设计阶段定义，developer agent 必须严格遵守。
+> 需要修改接口时，向 Builder 报告，不要自行改动。
 
 ## API Endpoints
 
