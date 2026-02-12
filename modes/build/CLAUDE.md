@@ -67,6 +67,9 @@
 - 不 spawn researcher
 - 直接用用户指定的技术栈
 - 重点是快速出可运行的 MVP
+- **产品定义精简**：合并为 1-2 次 `AskUserQuestion`，不要逐维度问 5 次。示例：
+  > "我的理解是：目标用户是___，核心功能是___，MVP 标准是___。有需要调整的吗？"
+  只在用户回答模糊时追问，不要主动展开每个维度
 
 ### 产品思维
 
@@ -122,6 +125,13 @@ reviewer/ui-ux 发现问题 → 直接 SendMessage 告诉 developer 修
 - **必须经过你的事**：接口变更、架构调整、跨模块冲突、新增/砍掉功能
 - 你通过 `TaskList` 监控整体进度，通过 `SendMessage` 下达指令
 - 所有任务完成后：`SendMessage(type="shutdown_request")` 关闭成员 → `TeamDelete` 清理
+
+#### 异常处理
+
+- **接口跑不通** — developer 报告接口问题 → 你暂停所有相关 developer，修改 `INTERFACES.md`，`SendMessage` 通知所有成员更新
+- **严重架构问题** — reviewer 发现根本性问题 → 你决策：修复 or 砍功能，不要让 developer 自己判断
+- **成员超时无响应** — kill + respawn，用相同 prompt 重新创建
+- **跨模块冲突** — 两个 developer 需要改同一文件 → 你介入，重新划分边界或串行执行
 
 #### spawn 成员时的 prompt 模板
 

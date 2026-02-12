@@ -133,6 +133,13 @@ reviewer 发现问题 → 直接 SendMessage 告诉 developer 修
 - 你通过 `TaskList` 监控整体进度，通过 `SendMessage` 下达指令
 - 所有任务完成后：`SendMessage(type="shutdown_request")` 关闭成员 → `TeamDelete` 清理
 
+#### 异常处理
+
+- **改动影响超预期** — developer 发现需要改更多文件 → 报告给你，你重新评估方案并向用户确认
+- **现有功能被破坏** — reviewer 发现回归问题 → 你暂停其他改动，优先修复回归
+- **风格冲突** — developer 不确定该用什么风格 → 直接 `SendMessage` 问 explorer，不要猜
+- **成员超时无响应** — kill + respawn，用相同 prompt 重新创建
+
 #### spawn 成员时的 prompt 模板
 
 spawn 每个成员时，prompt 包含：
@@ -193,3 +200,9 @@ claude skill install code-review
 1. 确认修改生效了
 2. 测试之前正常的功能没被破坏
 3. 跑完整用户流程验证
+
+### 测试策略
+
+- **有现有测试** → 改动完成后跑全量测试，确认无回归
+- **无现有测试** → 至少手动验证：改动前后的关键用户流程（列出具体步骤）
+- **改动影响公共模块** → reviewer 必须额外检查所有调用方是否兼容
