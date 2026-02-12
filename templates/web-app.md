@@ -2,53 +2,53 @@
 
 ## {{PROJECT_NAME}}
 
-> TODO: One-line description
+> TODO: 一句话描述
 
-**Type**: Web Application
-**Tech Stack**: {{TECH_STACK}}
+**类型**: Web 应用
+**技术栈**: {{TECH_STACK}}
 
-## Quick Start
+## 快速开始
 
 ```bash
-npm run dev          # Development
-npm run build        # Production build
-npm run preview      # Preview production build
-npm run lint         # ESLint
+npm run dev          # 开发
+npm run build        # 构建
+npm run preview      # 预览生产构建
+npm run lint         # 代码检查
 ```
 
-## Architecture
+## 项目结构
 
 ```
 src/
-├── app/                    # App entry / routing
-├── components/             # Reusable UI components
-│   ├── ui/                 # Base components (Button, Input, Modal...)
-│   └── features/           # Feature-specific components
-├── hooks/                  # Custom hooks / composables
-├── services/               # API clients, external service wrappers
-├── stores/                 # State management
-├── utils/                  # Utility functions
-├── types/                  # TypeScript type definitions
-└── styles/                 # Global styles, design tokens
+├── app/                    # 入口 / 路由
+├── components/             # 可复用组件
+│   ├── ui/                 # 基础组件（Button, Input, Modal...）
+│   └── features/           # 业务组件
+├── hooks/                  # 自定义 hooks / composables
+├── services/               # API 客户端、外部服务
+├── stores/                 # 状态管理
+├── utils/                  # 工具函数
+├── types/                  # TypeScript 类型
+└── styles/                 # 全局样式、设计 token
 ```
 
-## Design System
+## 设计系统
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| Primary | `#______` | Buttons, links, accents |
-| Background | `#______` | Page background |
-| Text | `#______` | Body text |
+| Token | 值 | 用途 |
+|-------|------|------|
+| Primary | `#______` | 按钮、链接、强调 |
+| Background | `#______` | 页面背景 |
+| Text | `#______` | 正文 |
 
-## Key Files
+## 关键文件
 
-| Path | Purpose |
-|------|---------|
-| `src/app/` | App entry and routing |
-| `src/services/api.ts` | API client |
-| `.env.local` | Environment variables (not committed) |
+| 路径 | 用途 |
+|------|------|
+| `src/app/` | 应用入口和路由 |
+| `src/services/api.ts` | API 客户端 |
+| `.env.local` | 环境变量（不提交） |
 
-## Environment Variables
+## 环境变量
 
 ```bash
 # .env.local
@@ -58,44 +58,44 @@ VITE_PUBLIC_KEY=xxx
 
 ---
 
-## AI Collaboration Rules
+## AI 协作规则
 
-### Workflow
+### 工作流程
 
-- Non-trivial tasks: explain approach first, get confirmation, then code
-- Simple tasks: just do it
-- After writing code: self-review for bugs, security issues, and edge cases
-- After modifying code: verify it actually runs before reporting done
-- Proactively flag potential issues you notice, even if not asked
+- 非简单任务：先说思路，确认后再写代码
+- 简单任务：直接干
+- 写完代码后：自动 review（bug、安全、边界情况）
+- 改完代码后：确认能跑通了再说搞定
+- 发现潜在问题主动提醒，即使我没问
 
-### Code Style
+### 代码风格
 
-- Minimal comments — only where logic isn't self-evident
-- Don't add JSDoc/docstrings unless asked
-- Don't over-engineer — moderate structure, no premature abstractions
-- Don't touch code I didn't ask you to change
+- 注释尽量少 — 只在逻辑不自明的地方加
+- 不要加 JSDoc/docstring，除非我要求
+- 不要过度工程化 — 适度结构，不搞过早抽象
+- 不要碰我没让你改的代码
 
 ### Git
 
-- Personal project: commit directly to main
-- Don't auto-commit — ask me before committing
-- Use conventional commits with emoji (✨ feat, 🐛 fix, etc.)
+- 个人项目：直接提交到 main
+- 不要自动 commit — 先问我要不要提交
+- 使用 conventional commits + emoji（✨ feat, 🐛 fix 等）
 
-### Debugging
+### 调试
 
-- Before fixing: explain 1) root cause 2) how fix addresses it 3) how to verify
-- Verify through complete user flows, not just the specific code change
-- If a bug "reappears", investigate the original diagnosis first
+- 修复前先说明：1) 根本原因 2) 修复方案 3) 如何验证
+- 通过完整用户流程验证，不要只验证改动的代码
+- bug "重现"时先检查原始诊断是否正确
 
-### Project Init (when building from scratch)
+### 项目初始化（从零开始时）
 
-- Generate project structure and base files
-- Set up dev tooling (linter, formatter, TypeScript config if applicable)
-- Initialize git with .gitignore and first commit
+- 生成项目结构和基础文件
+- 配置开发工具（linter、formatter、TypeScript 等）
+- 初始化 git（.gitignore + 首次 commit）
 
-### Verification
+### 验证检查点
 
-After every fix or config change:
-1. Verify the change actually took effect
-2. Test the previously failing scenario
-3. Confirm expected behavior
+每次修复或配置变更后：
+1. 确认变更确实生效了
+2. 测试之前失败的场景
+3. 确认预期行为正常

@@ -1,65 +1,65 @@
 # ai-coding-template
 
-Personal AI coding project template for use with [Claude Code](https://claude.ai/code).
+个人 AI coding 项目模板，配合 [Claude Code](https://claude.ai/code) 使用。
 
-Click **"Use this template"** on GitHub to create a new project, then run:
+在 GitHub 上点击 **"Use this template"** 创建新项目，然后运行：
 
 ```bash
 bash setup.sh
 ```
 
-## What's Included
+## 包含内容
 
 ```
 .claude/
 ├── commands/
-│   └── commit.md              # /commit command (Conventional Commits + emoji)
-└── settings.local.json        # Minimal project settings
+│   └── commit.md              # /commit 命令（Conventional Commits + emoji）
+└── settings.local.json        # 项目设置（语言=中文、模型=opus）
 
-CLAUDE.md                      # Project instructions for Claude Code
-.gitignore                     # Universal gitignore (Node/Python/Swift/Android)
-setup.sh                       # Interactive setup script
-templates/                     # CLAUDE.md templates (removed after setup)
+CLAUDE.md                      # Claude Code 项目指令
+.gitignore                     # 通用 gitignore（Node/Python/Swift/Android）
+setup.sh                       # 交互式初始化脚本
+templates/                     # CLAUDE.md 模板集（setup 后自动删除）
 ```
 
-## Available Templates
+## 可用模板
 
-| Template | Best For |
-|----------|----------|
+| 模板 | 适用场景 |
+|------|----------|
 | **web-app** | React, Vue, Next.js, Nuxt, Svelte |
 | **mobile-app** | iOS (Swift), Android (Kotlin), React Native |
-| **backend-api** | Node.js, Python, Go APIs |
-| **fullstack** | Frontend + Backend monorepo |
-| **quick-prototype** | Hackathon, rapid prototyping |
+| **backend-api** | Node.js, Python, Go API |
+| **fullstack** | 前端 + 后端 monorepo |
+| **quick-prototype** | Hackathon、快速原型 |
 
-## After Setup
+## Setup 之后
 
-1. Edit `CLAUDE.md` to fill in project-specific details (build commands, architecture, key files)
-2. The `templates/` directory and `setup.sh` are automatically removed
-3. Start coding with Claude Code!
+1. 编辑 `CLAUDE.md` 填入项目细节（构建命令、架构、关键文件）
+2. `templates/` 和 `setup.sh` 会自动删除
+3. 开始用 Claude Code 写代码！
 
-## Customization
+## 自定义
 
-### Adding project-specific rules
+### 添加项目特定规则
 
-Edit `CLAUDE.md` directly. Common additions:
-- Git workflow rules (branch naming, PR process)
-- API documentation
-- Design system tokens
-- Deployment instructions
+直接编辑 `CLAUDE.md`，常见补充：
+- Git 工作流（分支命名、PR 流程）
+- API 文档
+- 设计系统 token
+- 部署说明
 
-### Adding more /commands
+### 添加更多 /commands
 
-Create `.claude/commands/your-command.md` with YAML frontmatter:
+创建 `.claude/commands/your-command.md`，带 YAML frontmatter：
 ```yaml
 ---
-description: What this command does
+description: 这个命令做什么
 ---
 ```
 
-## Relationship with Global Config
+## 与全局配置的关系
 
-This template provides **project-level** configuration. It works alongside your global `~/.claude/CLAUDE.md` which handles cross-project preferences (debugging rules, verification habits, etc.).
+这个模板提供**项目级**配置，和全局 `~/.claude/CLAUDE.md` 配合使用。
 
-Project-level CLAUDE.md = what's specific to THIS project.
-Global CLAUDE.md = your universal coding style.
+- 项目级 CLAUDE.md = 这个项目特有的东西
+- 全局 CLAUDE.md = 你的通用编码习惯

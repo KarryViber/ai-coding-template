@@ -2,18 +2,18 @@
 
 ## {{PROJECT_NAME}}
 
-> TODO: One-line description
+> TODO: 一句话描述
 
-**Tech Stack**: {{TECH_STACK}}
+**技术栈**: {{TECH_STACK}}
 
-## Quick Start
+## 快速开始
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Structure
+## 项目结构
 
 ```
 src/
@@ -21,43 +21,43 @@ src/
 └── ...
 ```
 
-## Notes
+## 备注
 
-- Prototype / hackathon — prioritize speed
-- Keep it simple, ship fast
-- Refactor later if it survives
+- 原型 / hackathon 项目 — 速度优先
+- 保持简单，先上线再说
+- 活下来了再重构
 
 ---
 
-## AI Collaboration Rules
+## AI 协作规则
 
-### Workflow
+### 工作流程
 
-- Explain approach briefly, then code — don't overthink for prototypes
-- After writing code: quick self-review, make sure it runs
-- Proactively flag obvious issues
+- 简要说思路就行，别过度思考 — 这是原型
+- 写完快速 review，确保能跑
+- 发现明显问题主动提醒
 
-### Code Style
+### 代码风格
 
-- Minimal comments
-- Don't over-engineer — this is a prototype
-- Don't touch code I didn't ask you to change
+- 注释尽量少
+- 不要过度工程化 — 这是原型
+- 不要碰我没让你改的代码
 
 ### Git
 
-- Commit directly to main
-- Don't auto-commit — ask me first
-- Conventional commits with emoji
+- 直接提交到 main
+- 不要自动 commit — 先问我
+- conventional commits + emoji
 
-### Debugging
+### 调试
 
-- Before fixing: explain root cause briefly
-- Verify through actual user flow
-- If bug reappears, check original diagnosis
+- 修复前简要说根因
+- 通过实际使用流程验证
+- bug 重现时先查原始诊断
 
-### Verification
+### 验证检查点
 
-After every fix:
-1. Verify it works
-2. Test the failing scenario
-3. Confirm expected behavior
+每次修复后：
+1. 确认能跑
+2. 测试失败场景
+3. 确认预期行为

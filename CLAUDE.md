@@ -1,59 +1,59 @@
 # CLAUDE.md
 
-> Run `bash setup.sh` to select a template and configure this file.
+> 首次使用？运行 `bash setup.sh` 选择模板并配置此文件。
 
 ## {{PROJECT_NAME}}
 
-> TODO: One-line description
+> TODO: 一句话描述这个项目做什么
 
-**Tech Stack**: {{TECH_STACK}}
+**技术栈**: {{TECH_STACK}}
 
-## Quick Start
+## 快速开始
 
 ```bash
-# TODO: Install & run commands
+# TODO: 安装和启动命令
 ```
 
 ---
 
-## AI Collaboration Rules
+## AI 协作规则
 
-### Workflow
+### 工作流程
 
-- Non-trivial tasks: explain approach first, get confirmation, then code
-- Simple tasks: just do it
-- After writing code: self-review for bugs, security issues, and edge cases
-- After modifying code: verify it actually runs before reporting done
-- Proactively flag potential issues you notice, even if not asked
+- 非简单任务：先说思路，确认后再写代码
+- 简单任务：直接干
+- 写完代码后：自动 review（bug、安全、边界情况）
+- 改完代码后：确认能跑通了再说搞定
+- 发现潜在问题主动提醒，即使我没问
 
-### Code Style
+### 代码风格
 
-- Minimal comments — only where logic isn't self-evident
-- Don't add JSDoc/docstrings unless asked
-- Don't over-engineer — moderate structure, no premature abstractions
-- Don't touch code I didn't ask you to change
+- 注释尽量少 — 只在逻辑不自明的地方加
+- 不要加 JSDoc/docstring，除非我要求
+- 不要过度工程化 — 适度结构，不搞过早抽象
+- 不要碰我没让你改的代码
 
 ### Git
 
-- Personal project: commit directly to main
-- Don't auto-commit — ask me before committing
-- Use conventional commits with emoji (✨ feat, 🐛 fix, etc.)
+- 个人项目：直接提交到 main
+- 不要自动 commit — 先问我要不要提交
+- 使用 conventional commits + emoji（✨ feat, 🐛 fix 等）
 
-### Debugging
+### 调试
 
-- Before fixing: explain 1) root cause 2) how fix addresses it 3) how to verify
-- Verify through complete user flows, not just the specific code change
-- If a bug "reappears", investigate the original diagnosis first
+- 修复前先说明：1) 根本原因 2) 修复方案 3) 如何验证
+- 通过完整用户流程验证，不要只验证改动的代码
+- bug "重现"时先检查原始诊断是否正确
 
-### Project Init (when building from scratch)
+### 项目初始化（从零开始时）
 
-- Generate project structure and base files
-- Set up dev tooling (linter, formatter, TypeScript config if applicable)
-- Initialize git with .gitignore and first commit
+- 生成项目结构和基础文件
+- 配置开发工具（linter、formatter、TypeScript 等）
+- 初始化 git（.gitignore + 首次 commit）
 
-### Verification
+### 验证检查点
 
-After every fix or config change:
-1. Verify the change actually took effect
-2. Test the previously failing scenario
-3. Confirm expected behavior
+每次修复或配置变更后：
+1. 确认变更确实生效了
+2. 测试之前失败的场景
+3. 确认预期行为正常

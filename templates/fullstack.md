@@ -2,64 +2,64 @@
 
 ## {{PROJECT_NAME}}
 
-> TODO: One-line description
+> TODO: 一句话描述
 
-**Type**: Full-Stack Application
-**Tech Stack**: {{TECH_STACK}}
+**类型**: 全栈应用
+**技术栈**: {{TECH_STACK}}
 
-## Quick Start
+## 快速开始
 
 ```bash
-npm run dev              # All services
-npm run dev:client       # Frontend only
-npm run dev:server       # Backend only
-npm run build            # Build all
-npm test                 # All tests
+npm run dev              # 启动全部服务
+npm run dev:client       # 仅前端
+npm run dev:server       # 仅后端
+npm run build            # 构建全部
+npm test                 # 全部测试
 ```
 
-## Architecture
+## 项目结构
 
 ```
 {{PROJECT_NAME}}/
-├── client/                     # Frontend
+├── client/                     # 前端
 │   ├── src/
-│   │   ├── app/                # Entry, routing
-│   │   ├── components/         # UI components
-│   │   ├── hooks/              # Custom hooks
-│   │   ├── services/           # API client
-│   │   ├── stores/             # State management
-│   │   └── types/              # Types
+│   │   ├── app/                # 入口、路由
+│   │   ├── components/         # UI 组件
+│   │   ├── hooks/              # 自定义 hooks
+│   │   ├── services/           # API 客户端
+│   │   ├── stores/             # 状态管理
+│   │   └── types/              # 类型定义
 │   └── package.json
 │
-├── server/                     # Backend
+├── server/                     # 后端
 │   ├── src/
-│   │   ├── routes/             # API routes
-│   │   ├── controllers/        # Request handlers
-│   │   ├── services/           # Business logic
-│   │   ├── models/             # Database models
-│   │   ├── middleware/         # Auth, validation
-│   │   └── index.ts            # Entry
+│   │   ├── routes/             # API 路由
+│   │   ├── controllers/        # 请求处理器
+│   │   ├── services/           # 业务逻辑
+│   │   ├── models/             # 数据模型
+│   │   ├── middleware/         # 认证、校验
+│   │   └── index.ts            # 入口
 │   └── package.json
 │
-├── shared/                     # Shared code
-│   └── types/                  # Shared TypeScript types
+├── shared/                     # 共享代码
+│   └── types/                  # 共享 TypeScript 类型
 │
-└── package.json                # Root
+└── package.json                # 根（monorepo 脚本）
 ```
 
-## API Contract
+## API 契约
 
 ```
 Base URL: http://localhost:{{PORT}}/api
-Auth: Bearer token in Authorization header
+认证: Authorization header 中的 Bearer token
 ```
 
-## Database
+## 数据库
 
-- **Type**: {{DB_TYPE}}
+- **类型**: {{DB_TYPE}}
 - **ORM**: {{ORM}}
 
-## Environment Variables
+## 环境变量
 
 ```bash
 # server/.env
@@ -71,55 +71,55 @@ JWT_SECRET=your-secret
 VITE_API_URL=http://localhost:3000/api
 ```
 
-## Key Files
+## 关键文件
 
-| Path | Purpose |
-|------|---------|
-| `client/src/services/api.ts` | API client |
-| `server/src/routes/` | API routes |
-| `server/src/middleware/auth.ts` | Auth middleware |
-| `shared/types/` | Shared types |
+| 路径 | 用途 |
+|------|------|
+| `client/src/services/api.ts` | API 客户端 |
+| `server/src/routes/` | API 路由 |
+| `server/src/middleware/auth.ts` | 认证中间件 |
+| `shared/types/` | 共享类型 |
 
 ---
 
-## AI Collaboration Rules
+## AI 协作规则
 
-### Workflow
+### 工作流程
 
-- Non-trivial tasks: explain approach first, get confirmation, then code
-- Simple tasks: just do it
-- After writing code: self-review for bugs, security issues, and edge cases
-- After modifying code: verify it actually runs before reporting done
-- Proactively flag potential issues you notice, even if not asked
+- 非简单任务：先说思路，确认后再写代码
+- 简单任务：直接干
+- 写完代码后：自动 review（bug、安全、边界情况）
+- 改完代码后：确认能跑通了再说搞定
+- 发现潜在问题主动提醒，即使我没问
 
-### Code Style
+### 代码风格
 
-- Minimal comments — only where logic isn't self-evident
-- Don't add JSDoc/docstrings unless asked
-- Don't over-engineer — moderate structure, no premature abstractions
-- Don't touch code I didn't ask you to change
+- 注释尽量少 — 只在逻辑不自明的地方加
+- 不要加 JSDoc/docstring，除非我要求
+- 不要过度工程化 — 适度结构，不搞过早抽象
+- 不要碰我没让你改的代码
 
 ### Git
 
-- Personal project: commit directly to main
-- Don't auto-commit — ask me before committing
-- Use conventional commits with emoji (✨ feat, 🐛 fix, etc.)
+- 个人项目：直接提交到 main
+- 不要自动 commit — 先问我要不要提交
+- 使用 conventional commits + emoji（✨ feat, 🐛 fix 等）
 
-### Debugging
+### 调试
 
-- Before fixing: explain 1) root cause 2) how fix addresses it 3) how to verify
-- Verify through complete user flows, not just the specific code change
-- If a bug "reappears", investigate the original diagnosis first
+- 修复前先说明：1) 根本原因 2) 修复方案 3) 如何验证
+- 通过完整用户流程验证，不要只验证改动的代码
+- bug "重现"时先检查原始诊断是否正确
 
-### Project Init (when building from scratch)
+### 项目初始化（从零开始时）
 
-- Generate project structure and base files
-- Set up dev tooling (linter, formatter, TypeScript config if applicable)
-- Initialize git with .gitignore and first commit
+- 生成项目结构和基础文件
+- 配置开发工具（linter、formatter、TypeScript 等）
+- 初始化 git（.gitignore + 首次 commit）
 
-### Verification
+### 验证检查点
 
-After every fix or config change:
-1. Verify the change actually took effect
-2. Test the previously failing scenario
-3. Confirm expected behavior
+每次修复或配置变更后：
+1. 确认变更确实生效了
+2. 测试之前失败的场景
+3. 确认预期行为正常

@@ -2,49 +2,49 @@
 
 ## {{PROJECT_NAME}}
 
-> TODO: One-line description
+> TODO: 一句话描述
 
-**Type**: Backend API
-**Tech Stack**: {{TECH_STACK}}
+**类型**: 后端 API
+**技术栈**: {{TECH_STACK}}
 
-## Quick Start
+## 快速开始
 
 ```bash
-npm run dev          # Development (hot reload)
-npm run build        # Build
-npm start            # Production
-npm test             # Tests
-npm run db:migrate   # Database migrations
-npm run db:seed      # Seed data
+npm run dev          # 开发（热重载）
+npm run build        # 构建
+npm start            # 生产启动
+npm test             # 测试
+npm run db:migrate   # 数据库迁移
+npm run db:seed      # 填充种子数据
 ```
 
-## Architecture
+## 项目结构
 
 ```
 src/
-├── routes/                 # Route definitions
+├── routes/                 # 路由定义
 │   ├── auth.ts
 │   └── api/
-├── controllers/            # Request handlers
-├── services/               # Business logic
-├── models/                 # Database models / schemas
-├── middleware/              # Auth, validation, error handling
-├── utils/                  # Helpers, constants
-├── config/                 # App config, env validation
-└── index.ts                # Server entry point
+├── controllers/            # 请求处理器
+├── services/               # 业务逻辑
+├── models/                 # 数据模型 / Schema
+├── middleware/              # 认证、校验、错误处理
+├── utils/                  # 工具函数、常量
+├── config/                 # 应用配置、环境变量校验
+└── index.ts                # 服务入口
 ```
 
-## API Structure
+## API 结构
 
 ```
 Base URL: http://localhost:{{PORT}}
 
-Auth:
+认证:
   POST   /api/auth/login
   POST   /api/auth/register
   POST   /api/auth/refresh
 
-Resources:
+资源:
   GET    /api/{{resource}}
   POST   /api/{{resource}}
   GET    /api/{{resource}}/:id
@@ -52,12 +52,12 @@ Resources:
   DELETE /api/{{resource}}/:id
 ```
 
-## Database
+## 数据库
 
-- **Type**: {{DB_TYPE}}
-- **Connection**: See `.env`
+- **类型**: {{DB_TYPE}}
+- **连接**: 见 `.env`
 
-## Environment Variables
+## 环境变量
 
 ```bash
 # .env
@@ -67,55 +67,55 @@ JWT_SECRET=your-secret-here
 NODE_ENV=development
 ```
 
-## Key Files
+## 关键文件
 
-| Path | Purpose |
-|------|---------|
-| `src/index.ts` | Server entry |
-| `src/routes/` | API routes |
-| `src/middleware/auth.ts` | Auth middleware |
-| `src/config/` | Env config |
+| 路径 | 用途 |
+|------|------|
+| `src/index.ts` | 服务入口 |
+| `src/routes/` | API 路由 |
+| `src/middleware/auth.ts` | 认证中间件 |
+| `src/config/` | 环境配置 |
 
 ---
 
-## AI Collaboration Rules
+## AI 协作规则
 
-### Workflow
+### 工作流程
 
-- Non-trivial tasks: explain approach first, get confirmation, then code
-- Simple tasks: just do it
-- After writing code: self-review for bugs, security issues, and edge cases
-- After modifying code: verify it actually runs before reporting done
-- Proactively flag potential issues you notice, even if not asked
+- 非简单任务：先说思路，确认后再写代码
+- 简单任务：直接干
+- 写完代码后：自动 review（bug、安全、边界情况）
+- 改完代码后：确认能跑通了再说搞定
+- 发现潜在问题主动提醒，即使我没问
 
-### Code Style
+### 代码风格
 
-- Minimal comments — only where logic isn't self-evident
-- Don't add JSDoc/docstrings unless asked
-- Don't over-engineer — moderate structure, no premature abstractions
-- Don't touch code I didn't ask you to change
+- 注释尽量少 — 只在逻辑不自明的地方加
+- 不要加 JSDoc/docstring，除非我要求
+- 不要过度工程化 — 适度结构，不搞过早抽象
+- 不要碰我没让你改的代码
 
 ### Git
 
-- Personal project: commit directly to main
-- Don't auto-commit — ask me before committing
-- Use conventional commits with emoji (✨ feat, 🐛 fix, etc.)
+- 个人项目：直接提交到 main
+- 不要自动 commit — 先问我要不要提交
+- 使用 conventional commits + emoji（✨ feat, 🐛 fix 等）
 
-### Debugging
+### 调试
 
-- Before fixing: explain 1) root cause 2) how fix addresses it 3) how to verify
-- Verify through complete user flows, not just the specific code change
-- If a bug "reappears", investigate the original diagnosis first
+- 修复前先说明：1) 根本原因 2) 修复方案 3) 如何验证
+- 通过完整用户流程验证，不要只验证改动的代码
+- bug "重现"时先检查原始诊断是否正确
 
-### Project Init (when building from scratch)
+### 项目初始化（从零开始时）
 
-- Generate project structure and base files
-- Set up dev tooling (linter, formatter, TypeScript config if applicable)
-- Initialize git with .gitignore and first commit
+- 生成项目结构和基础文件
+- 配置开发工具（linter、formatter、TypeScript 等）
+- 初始化 git（.gitignore + 首次 commit）
 
-### Verification
+### 验证检查点
 
-After every fix or config change:
-1. Verify the change actually took effect
-2. Test the previously failing scenario
-3. Confirm expected behavior
+每次修复或配置变更后：
+1. 确认变更确实生效了
+2. 测试之前失败的场景
+3. 确认预期行为正常

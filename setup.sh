@@ -1,6 +1,6 @@
 #!/bin/bash
-# ai-coding-template setup script
-# Usage: bash setup.sh
+# ai-coding-template 初始化脚本
+# 用法: bash setup.sh
 
 set -e
 
@@ -12,26 +12,26 @@ NC='\033[0m'
 
 echo ""
 echo -e "${BLUE}========================================${NC}"
-echo -e "${BLUE}  ai-coding-template setup${NC}"
+echo -e "${BLUE}  ai-coding-template 初始化${NC}"
 echo -e "${BLUE}========================================${NC}"
 echo ""
 
-# 1. Get project name
+# 1. 项目名称
 DIRNAME=$(basename "$(pwd)")
-read -p "Project name [${DIRNAME}]: " PROJECT_NAME
+read -p "项目名称 [${DIRNAME}]: " PROJECT_NAME
 PROJECT_NAME=${PROJECT_NAME:-$DIRNAME}
 
-# 2. Choose template
+# 2. 选择模板
 echo ""
-echo "Available templates:"
+echo "可用模板："
 echo ""
-echo "  1) web-app          - Web app (React/Vue/Next.js/Nuxt)"
-echo "  2) mobile-app       - Mobile (iOS Swift / Android Kotlin / RN)"
-echo "  3) backend-api      - Backend API (Node.js / Python / Go)"
-echo "  4) fullstack        - Full-stack (frontend + backend)"
-echo "  5) quick-prototype  - Quick prototype / Hackathon"
+echo "  1) web-app          - Web 应用（React/Vue/Next.js/Nuxt）"
+echo "  2) mobile-app       - 移动端（iOS Swift / Android Kotlin / RN）"
+echo "  3) backend-api      - 后端 API（Node.js / Python / Go）"
+echo "  4) fullstack        - 全栈（前端 + 后端）"
+echo "  5) quick-prototype  - 快速原型 / Hackathon"
 echo ""
-read -p "Choose a template [1-5]: " TEMPLATE_CHOICE
+read -p "选择模板 [1-5]: " TEMPLATE_CHOICE
 
 case $TEMPLATE_CHOICE in
   1) TEMPLATE="web-app" ;;
@@ -39,18 +39,18 @@ case $TEMPLATE_CHOICE in
   3) TEMPLATE="backend-api" ;;
   4) TEMPLATE="fullstack" ;;
   5) TEMPLATE="quick-prototype" ;;
-  *) echo "Invalid choice. Using quick-prototype."; TEMPLATE="quick-prototype" ;;
+  *) echo "无效选择，使用 quick-prototype。"; TEMPLATE="quick-prototype" ;;
 esac
 
-# 3. Ask for tech stack
+# 3. 技术栈
 echo ""
-read -p "Tech stack (e.g., 'Next.js + Tailwind + Supabase'): " TECH_STACK
-TECH_STACK=${TECH_STACK:-"TBD"}
+read -p "技术栈（如 'Next.js + Tailwind + Supabase'）: " TECH_STACK
+TECH_STACK=${TECH_STACK:-"待定"}
 
-# 4. Copy template to CLAUDE.md
+# 4. 复制模板
 cp "templates/${TEMPLATE}.md" CLAUDE.md
 
-# 5. Replace placeholders
+# 5. 替换占位符
 if [[ "$OSTYPE" == "darwin"* ]]; then
   sed -i '' "s/{{PROJECT_NAME}}/${PROJECT_NAME}/g" CLAUDE.md
   sed -i '' "s/{{TECH_STACK}}/${TECH_STACK}/g" CLAUDE.md
@@ -59,25 +59,25 @@ else
   sed -i "s/{{TECH_STACK}}/${TECH_STACK}/g" CLAUDE.md
 fi
 
-# 6. Clean up
+# 6. 清理
 rm -rf templates/
 rm -f setup.sh
 
-# 7. Done
+# 7. 完成
 echo ""
 echo -e "${GREEN}========================================${NC}"
-echo -e "${GREEN}  Setup complete!${NC}"
+echo -e "${GREEN}  初始化完成！${NC}"
 echo -e "${GREEN}========================================${NC}"
 echo ""
-echo -e "  Template:  ${YELLOW}${TEMPLATE}${NC}"
-echo -e "  Project:   ${YELLOW}${PROJECT_NAME}${NC}"
-echo -e "  Stack:     ${YELLOW}${TECH_STACK}${NC}"
+echo -e "  模板:    ${YELLOW}${TEMPLATE}${NC}"
+echo -e "  项目:    ${YELLOW}${PROJECT_NAME}${NC}"
+echo -e "  技术栈:  ${YELLOW}${TECH_STACK}${NC}"
 echo ""
-echo "  Next steps:"
-echo "    1. Edit CLAUDE.md to fill in project-specific details"
-echo "    2. Start coding with Claude Code!"
+echo "  下一步："
+echo "    1. 编辑 CLAUDE.md 填入项目具体信息"
+echo "    2. 开始用 Claude Code 写代码！"
 echo ""
-echo -e "${DIM}  Recommended plugins (install if needed):${NC}"
+echo -e "${DIM}  推荐安装的插件：${NC}"
 echo -e "${DIM}  claude plugin install commit-commands@claude-plugins-official${NC}"
 echo -e "${DIM}  claude plugin install pr-review-toolkit@claude-plugins-official${NC}"
 echo -e "${DIM}  claude plugin install security-guidance@claude-plugins-official${NC}"

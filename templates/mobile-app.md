@@ -2,21 +2,21 @@
 
 ## {{PROJECT_NAME}}
 
-> TODO: One-line description
+> TODO: 一句话描述
 
-**Type**: Mobile Application
-**Platform**: {{PLATFORM}}
-**Tech Stack**: {{TECH_STACK}}
+**类型**: 移动应用
+**平台**: {{PLATFORM}}
+**技术栈**: {{TECH_STACK}}
 
-## Quick Start
+## 快速开始
 
 ### iOS (Swift / SwiftUI)
 
 ```bash
-xcodegen generate                    # Generate Xcode project (if using XcodeGen)
-open {{PROJECT_NAME}}.xcodeproj      # Open in Xcode
+xcodegen generate                    # 生成 Xcode 项目（XcodeGen）
+open {{PROJECT_NAME}}.xcodeproj      # 打开 Xcode
 
-# Build for simulator
+# 模拟器构建
 xcodebuild -project {{PROJECT_NAME}}.xcodeproj \
   -scheme {{PROJECT_NAME}} \
   -destination 'platform=iOS Simulator,name=iPhone 16' build
@@ -25,100 +25,100 @@ xcodebuild -project {{PROJECT_NAME}}.xcodeproj \
 ### Android (Kotlin / Jetpack Compose)
 
 ```bash
-./gradlew assembleDebug     # Build debug APK
-./gradlew installDebug      # Install on device
-./gradlew test              # Run tests
+./gradlew assembleDebug     # 构建 debug APK
+./gradlew installDebug      # 安装到设备
+./gradlew test              # 运行测试
 ```
 
 ### React Native / Expo
 
 ```bash
-npx expo start              # Development
+npx expo start              # 开发
 npx expo run:ios            # iOS
 npx expo run:android        # Android
 ```
 
-## Architecture
+## 项目结构
 
 ```
 # iOS
 Sources/
-├── App/                    # App entry point
-├── Views/                  # SwiftUI views
-├── ViewModels/             # View models (MVVM)
-├── Models/                 # Data models
-├── Services/               # Network, storage, auth
-└── Utils/                  # Extensions, helpers
+├── App/                    # 入口
+├── Views/                  # SwiftUI 视图
+├── ViewModels/             # 视图模型 (MVVM)
+├── Models/                 # 数据模型
+├── Services/               # 网络、存储、认证
+└── Utils/                  # 扩展、工具
 
 # Android
 app/src/main/java/.../
-├── ui/                     # Compose screens
-├── viewmodel/              # ViewModels
-├── data/                   # Repository, data sources
-├── model/                  # Data classes
-└── di/                     # Dependency injection
+├── ui/                     # Compose 页面
+├── viewmodel/              # ViewModel
+├── data/                   # Repository、数据源
+├── model/                  # 数据类
+└── di/                     # 依赖注入
 ```
 
-## Key Files
+## 关键文件
 
-| Path | Purpose |
-|------|---------|
-| `Sources/App/` | App entry point |
-| `Sources/Services/` | API clients, auth |
-| `project.yml` | XcodeGen config (iOS) |
-| `build.gradle` | Build config (Android) |
+| 路径 | 用途 |
+|------|------|
+| `Sources/App/` | 应用入口 |
+| `Sources/Services/` | API 客户端、认证 |
+| `project.yml` | XcodeGen 配置 (iOS) |
+| `build.gradle` | 构建配置 (Android) |
 
-## Localization
+## 本地化
 
-- `zh-Hans` — Simplified Chinese (primary)
-- `en` — English
-- `ja` — Japanese
+- `zh-Hans` — 简体中文（主要）
+- `en` — 英文
+- `ja` — 日文
 
-## Firebase / Backend
+## Firebase / 后端
 
 - Project ID: `{{FIREBASE_PROJECT_ID}}`
 - Region: `us-central1`
 
 ---
 
-## AI Collaboration Rules
+## AI 协作规则
 
-### Workflow
+### 工作流程
 
-- Non-trivial tasks: explain approach first, get confirmation, then code
-- Simple tasks: just do it
-- After writing code: self-review for bugs, security issues, and edge cases
-- After modifying code: verify it actually runs before reporting done
-- Proactively flag potential issues you notice, even if not asked
+- 非简单任务：先说思路，确认后再写代码
+- 简单任务：直接干
+- 写完代码后：自动 review（bug、安全、边界情况）
+- 改完代码后：确认能跑通了再说搞定
+- 发现潜在问题主动提醒，即使我没问
 
-### Code Style
+### 代码风格
 
-- Minimal comments — only where logic isn't self-evident
-- Don't add JSDoc/docstrings unless asked
-- Don't over-engineer — moderate structure, no premature abstractions
-- Don't touch code I didn't ask you to change
+- 注释尽量少 — 只在逻辑不自明的地方加
+- 不要加 JSDoc/docstring，除非我要求
+- 不要过度工程化 — 适度结构，不搞过早抽象
+- 不要碰我没让你改的代码
 
 ### Git
 
-- Personal project: commit directly to main
-- Don't auto-commit — ask me before committing
-- Use conventional commits with emoji (✨ feat, 🐛 fix, etc.)
+- 个人项目：直接提交到 main
+- 不要自动 commit — 先问我要不要提交
+- 使用 conventional commits + emoji（✨ feat, 🐛 fix 等）
 
-### Debugging
+### 调试
 
-- Before fixing: explain 1) root cause 2) how fix addresses it 3) how to verify
-- Verify through complete user flows, not just the specific code change
-- If a bug "reappears", investigate the original diagnosis first
+- 修复前先说明：1) 根本原因 2) 修复方案 3) 如何验证
+- 通过完整用户流程验证，不要只验证改动的代码
+- bug "重现"时先检查原始诊断是否正确
 
-### Project Init (when building from scratch)
+### 项目初始化（从零开始时）
 
-- Generate project structure and base files
-- Set up dev tooling (linter, formatter, TypeScript config if applicable)
-- Initialize git with .gitignore and first commit
+- 生成项目结构和基础文件
+- 配置开发工具（linter、formatter、TypeScript 等）
+- 初始化 git（.gitignore + 首次 commit）
 
-### Verification
+### 验证检查点
 
-After every fix or config change:
-1. Verify the change actually took effect
-2. Test the previously failing scenario
-3. Confirm expected behavior
+每次修复或配置变更后：
+1. 确认变更确实生效了
+2. 测试之前失败的场景
+3. 确认预期行为正常
