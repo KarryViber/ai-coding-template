@@ -10,7 +10,9 @@ venv/
 
 # Build outputs
 dist/
-build/
+# build/ — 注意：模板的 modes/build/ 需要被追踪，所以用更具体的规则
+**/build/
+!modes/build/
 out/
 .next/
 .nuxt/

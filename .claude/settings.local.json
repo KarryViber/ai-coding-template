@@ -2,7 +2,12 @@
   "language": "中文",
   "model": "opus",
   "permissions": {
-    "allow": [],
+    "allow": [
+      "Bash(*)",
+      "Write(*)",
+      "Edit(*)",
+      "Read(*)"
+    ],
     "defaultMode": "default"
   }
 }
