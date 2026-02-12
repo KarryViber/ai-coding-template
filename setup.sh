@@ -68,6 +68,11 @@ else
   AGENTS_INSTALLED=false
 fi
 
+# 接口契约模板（build 模式）
+if [ -f "modes/${MODE}/INTERFACES.template.md" ]; then
+  cp "modes/${MODE}/INTERFACES.template.md" INTERFACES.md
+fi
+
 # 5. 应用 Fast 模式标记
 if [[ "$FAST_MODE" =~ ^[Yy]$ ]]; then
   printf '**Fast**: true\n\n%s' "$(cat CLAUDE.md)" > CLAUDE.md
