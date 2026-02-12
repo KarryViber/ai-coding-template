@@ -45,12 +45,15 @@
 - [ ] 移动端触控目标是否够大（≥44px）
 - [ ] 配色对比度是否满足可访问性要求
 
-## 推荐工具
+## 默认工具
 
-- `frontend-design` — 高质量前端界面实现
-- `web-design-guidelines` — Web 界面设计规范审查
-- `ux-researcher-designer` — UX 研究和设计
-- `ui-design-system` — 设计系统
+- `frontend-design` — 高质量前端界面实现（设计→代码）
+- `web-design-guidelines` — Web 界面设计规范审查（review 环节）
+
+## 按需工具（项目规模大时再装）
+
+- `ux-researcher-designer` — 用户研究、可用性测试
+- `ui-design-system` — 设计系统、design token 管理
 
 ## 规则
 
