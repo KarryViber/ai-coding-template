@@ -1,26 +1,19 @@
 # CLAUDE.md
 
-## Project Overview
+## {{PROJECT_NAME}}
 
-**Project**: {{PROJECT_NAME}}
+> TODO: One-line description
+
 **Type**: Web Application
 **Tech Stack**: {{TECH_STACK}}
 
-## Build Commands
+## Quick Start
 
 ```bash
-# Development
-npm run dev          # or: bun dev / pnpm dev
-
-# Build
+npm run dev          # Development
 npm run build        # Production build
-
-# Preview
-npm run preview      # Preview production build locally
-
-# Lint / Format
+npm run preview      # Preview production build
 npm run lint         # ESLint
-npm run format       # Prettier
 ```
 
 ## Architecture
@@ -51,8 +44,8 @@ src/
 
 | Path | Purpose |
 |------|---------|
-| `src/app/` | Application entry and routing |
-| `src/services/api.ts` | API client configuration |
+| `src/app/` | App entry and routing |
+| `src/services/api.ts` | API client |
 | `.env.local` | Environment variables (not committed) |
 
 ## Environment Variables
@@ -63,15 +56,46 @@ VITE_API_URL=http://localhost:3000
 VITE_PUBLIC_KEY=xxx
 ```
 
-## Debugging Rules
+---
 
-- Before fixing a bug, explain: 1) Root cause 2) How the fix addresses it 3) How to verify
-- Verify fixes through **complete user flows**, not just the specific code change
-- If a bug "reappears" after fixing, investigate whether the original diagnosis was correct
+## AI Collaboration Rules
 
-## Verification Checkpoints
+### Workflow
+
+- Non-trivial tasks: explain approach first, get confirmation, then code
+- Simple tasks: just do it
+- After writing code: self-review for bugs, security issues, and edge cases
+- After modifying code: verify it actually runs before reporting done
+- Proactively flag potential issues you notice, even if not asked
+
+### Code Style
+
+- Minimal comments — only where logic isn't self-evident
+- Don't add JSDoc/docstrings unless asked
+- Don't over-engineer — moderate structure, no premature abstractions
+- Don't touch code I didn't ask you to change
+
+### Git
+
+- Personal project: commit directly to main
+- Don't auto-commit — ask me before committing
+- Use conventional commits with emoji (✨ feat, 🐛 fix, etc.)
+
+### Debugging
+
+- Before fixing: explain 1) root cause 2) how fix addresses it 3) how to verify
+- Verify through complete user flows, not just the specific code change
+- If a bug "reappears", investigate the original diagnosis first
+
+### Project Init (when building from scratch)
+
+- Generate project structure and base files
+- Set up dev tooling (linter, formatter, TypeScript config if applicable)
+- Initialize git with .gitignore and first commit
+
+### Verification
 
 After every fix or config change:
-1. Verify the change actually took effect (not just that the file was saved)
-2. Test the specific user scenario that was previously failing
-3. Confirm the expected behavior can be reproduced
+1. Verify the change actually took effect
+2. Test the previously failing scenario
+3. Confirm expected behavior
