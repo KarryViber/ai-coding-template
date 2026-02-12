@@ -50,6 +50,12 @@ echo ""
 read -p "跳过调研阶段？适合面试/demo等时间紧急场景 [y/N]: " FAST_MODE
 FAST_MODE=${FAST_MODE:-"n"}
 
+# 跨平台 sed -i 兼容
+SED_INPLACE=(-i '')
+if [[ "$OSTYPE" != "darwin"* ]]; then
+  SED_INPLACE=(-i)
+fi
+
 # 4. 复制模式文件
 # CLAUDE.md
 cp "modes/${MODE}/CLAUDE.md" CLAUDE.md
@@ -75,11 +81,6 @@ else
 fi
 
 # 6. 替换占位符
-SED_INPLACE=(-i '')
-if [[ "$OSTYPE" != "darwin"* ]]; then
-  SED_INPLACE=(-i)
-fi
-
 sed "${SED_INPLACE[@]}" "s/{{PROJECT_NAME}}/${PROJECT_NAME}/g" CLAUDE.md
 sed "${SED_INPLACE[@]}" "s/{{TECH_STACK}}/${TECH_STACK}/g" CLAUDE.md
 
