@@ -64,6 +64,7 @@
 本模式预配置了 agent team，可通过以下方式使用：
 
 - `researcher` — 开源调研、技术对比、找参考项目
+- `ui-ux` — 交互设计、视觉规范、前端体验把控（开发前出方案，开发后 review 实现）
 - `developer` — 代码实现
 - `reviewer` — 每个模块完成后立即 review（边做边审，不等最后）
 
