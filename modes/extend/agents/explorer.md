@@ -32,7 +32,7 @@
 - 不要碰: [文件] - [原因]
 ```
 
-## 推荐工具
+## 默认工具
 
 - `feature-dev:code-explorer` — 深度代码分析
 - `feature-dev:code-architect` — 架构分析
