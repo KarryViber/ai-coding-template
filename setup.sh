@@ -45,6 +45,11 @@ echo ""
 read -p "技术栈（如 'Next.js + Tailwind + Supabase'）: " TECH_STACK
 TECH_STACK=${TECH_STACK:-"待定"}
 
+# 4. Fast 模式（跳过调研）
+echo ""
+read -p "跳过调研阶段？适合面试/demo等时间紧急场景 [y/N]: " FAST_MODE
+FAST_MODE=${FAST_MODE:-"n"}
+
 # 4. 复制模式文件
 # CLAUDE.md
 cp "modes/${MODE}/CLAUDE.md" CLAUDE.md
@@ -58,7 +63,18 @@ else
   AGENTS_INSTALLED=false
 fi
 
-# 5. 替换占位符
+# 5. 应用 Fast 模式标记
+if [[ "$FAST_MODE" =~ ^[Yy]$ ]]; then
+  # 在 CLAUDE.md 顶部插入 Fast 标记
+  sed "${SED_INPLACE[@]}" '1s/^/**Fast**: true\n\n/' CLAUDE.md
+  # 删除 researcher agent
+  rm -f .claude/agents/researcher.md 2>/dev/null
+  FAST_APPLIED=true
+else
+  FAST_APPLIED=false
+fi
+
+# 6. 替换占位符
 SED_INPLACE=(-i '')
 if [[ "$OSTYPE" != "darwin"* ]]; then
   SED_INPLACE=(-i)
@@ -67,11 +83,11 @@ fi
 sed "${SED_INPLACE[@]}" "s/{{PROJECT_NAME}}/${PROJECT_NAME}/g" CLAUDE.md
 sed "${SED_INPLACE[@]}" "s/{{TECH_STACK}}/${TECH_STACK}/g" CLAUDE.md
 
-# 6. 清理
+# 7. 清理
 rm -rf modes/
 rm -f setup.sh
 
-# 7. 完成
+# 8. 完成
 echo ""
 echo -e "${GREEN}========================================${NC}"
 echo -e "${GREEN}  初始化完成！${NC}"
@@ -84,6 +100,10 @@ echo -e "  技术栈:  ${YELLOW}${TECH_STACK}${NC}"
 if [ "$AGENTS_INSTALLED" = true ]; then
   echo ""
   echo -e "  Agent Team 已配置 → ${DIM}.claude/agents/${NC}"
+fi
+
+if [ "$FAST_APPLIED" = true ]; then
+  echo -e "  Fast 模式:  ${YELLOW}开启（跳过调研）${NC}"
 fi
 
 echo ""
